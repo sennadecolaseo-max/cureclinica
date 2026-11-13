@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import BlogContent from '../components/BlogContent.astro';
+import '../styles/pages/blog.css';
+---
+
+<Layout
+  title="Blog - Cure Clínica - Tricologia"
+  description="Tricologia e terapia capilar avançada em Mogi das Cruzes: fortalecimento pré e pós química, tratamento de queda de cabelo e pré e pós-transplante capilar."
+  pageId={319}
+  isHome={false}
+>
+  <SiteHeader />
+  <main id="content" class="site-main post-319 page type-page status-publish hentry">
+    <div class="page-content">
+      <div data-elementor-type="archive" data-elementor-id="321" class="elementor elementor-321" data-elementor-post-type="elementor_library">
+        <BlogContent />
+      </div>
+    </div>
+  </main>
+  <SiteFooter />
+</Layout>

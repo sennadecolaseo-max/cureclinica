@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import QuedaContent from '../components/QuedaContent.astro';
+import '../styles/pages/widgets-extra.css';
+import '../styles/pages/queda.css';
+---
+
+<Layout
+  title="Queda de Cabelo - Cure Clínica - Tricologia"
+  description="Tratamento para queda de cabelo e calvície em Mogi das Cruzes. Avaliação com 6 exames, programa individualizado e 90% de sucesso. Marque sua avaliação com a tricologista Tania Machado."
+  pageId={384}
+  isHome={false}
+>
+  <SiteHeader />
+  <main id="content" class="site-main post-384 page type-page status-publish hentry">
+    <div class="page-content">
+      <div data-elementor-type="wp-page" data-elementor-id="384" class="elementor elementor-384" data-elementor-post-type="page">
+        <QuedaContent />
+      </div>
+    </div>
+  </main>
+  <SiteFooter />
+</Layout>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+  // Carrossel "Resultados do Tratamento" (4 slides, setas fora, bolinhas)
+  document.querySelectorAll<HTMLElement>('.elementor-image-carousel-wrapper').forEach((wrap) => {
+    const clip = wrap.querySelector<HTMLElement>('.swiper-clip');
+    if (!clip) return;
+    const n = Number(wrap.dataset.slides || 3);
+    new Swiper(clip, {
+      modules: [Autoplay, Pagination, Navigation],
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: 0,
+      loop: true,
+      speed: 500,
+      autoplay: { delay: 5000, pauseOnMouseEnter: true, disableOnInteraction: false },
+      pagination: { el: wrap.querySelector<HTMLElement>('.swiper-pagination')!, clickable: true },
+      navigation: {
+        prevEl: wrap.querySelector<HTMLElement>('.elementor-swiper-button-prev')!,
+        nextEl: wrap.querySelector<HTMLElement>('.elementor-swiper-button-next')!,
+      },
+      breakpoints: { 768: { slidesPerView: Math.min(2, n) }, 1025: { slidesPerView: n } },
+    });
+  });
+
+  // Contadores (animam de 0 até o valor quando entram na tela)
+  const counters = document.querySelectorAll<HTMLElement>('.elementor-counter-number');
+  const run = (el: HTMLElement) => {
+    const to = Number(el.dataset.toValue || 0);
+    const dur = Number(el.dataset.duration || 2000);
+    const t0 = performance.now();
+    const tick = (t: number) => {
+      const p = Math.min((t - t0) / dur, 1);
+      el.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    el.textContent = '0';
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { run(en.target as HTMLElement); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach((c) => io.observe(c));
+  }
+</script>

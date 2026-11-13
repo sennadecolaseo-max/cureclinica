@@ -1,0 +1,26 @@
+/* Widgets Elementor usados nas páginas internas (botão, contador, carrossel de imagens) */
+.elementor-button-wrapper{display:block}
+.elementor-button{display:inline-block;line-height:1;background-color:#69727d;font-size:15px;padding:11px 23px;border-radius:3px;color:#fff;fill:#fff;text-align:center;transition:all .3s}
+.elementor-button:hover,.elementor-button:focus{color:#fff}
+.elementor-button-content-wrapper{display:flex;justify-content:center;flex-direction:row;gap:5px}
+.elementor-button-text{display:inline-block}
+
+.elementor-counter{text-align:center}
+.elementor-counter .elementor-counter-number-wrapper{display:flex;justify-content:center;font-size:69px;font-weight:600;line-height:1;font-family:"Roboto",sans-serif}
+.elementor-counter .elementor-counter-title{text-align:center;font-size:19px;font-weight:400;line-height:2.5;font-family:"Roboto Slab",serif}
+
+.elementor-widget-image-carousel{position:relative}
+.elementor-image-carousel-wrapper{position:relative;overflow:visible;width:100%;padding-bottom:40px}
+.elementor-image-carousel-wrapper .swiper-wrapper{display:flex;align-items:center}
+.elementor-image-carousel-wrapper .swiper-slide{display:flex;justify-content:center;align-items:center;height:auto}
+.elementor-image-carousel-wrapper .swiper-slide-inner{margin:0;width:100%}
+.elementor-image-carousel-wrapper .swiper-slide-image{display:block;margin:auto;max-width:100%;height:auto}
+.elementor-image-carousel-wrapper .swiper-clip{overflow:hidden}
+.elementor-arrows-position-outside .elementor-image-carousel-wrapper .swiper-clip{width:calc(100% - 60px);margin:0 auto}
+.elementor-image-carousel-wrapper .swiper-pagination{position:absolute;bottom:5px;left:0;right:0;text-align:center;line-height:1}
+.elementor-image-carousel-wrapper .swiper-pagination-bullet{display:inline-block;width:6px;height:6px;margin:0 5.5px;border-radius:50%;background:#000;opacity:.2;cursor:pointer;padding:0}
+.elementor-image-carousel-wrapper .swiper-pagination-bullet-active{opacity:1}
+.elementor-swiper-button{position:absolute;top:calc(50% - 20px);z-index:2;display:flex;align-items:center;justify-content:center;width:30px;height:30px;margin:0;padding:0;border:0;background:none;cursor:pointer;transform:translateY(-50%)}
+.elementor-swiper-button-prev{left:0}
+.elementor-swiper-button-next{right:0}
+.elementor-swiper-button.swiper-button-disabled{opacity:.3;cursor:default}
