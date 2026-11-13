@@ -1,364 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { asset, WHATSAPP_URL } from '../data/assets';
-
-const menu = [
-  { label: 'Home', href: '/' },
-  { label: 'Tratamentos', href: '/tratamentos/' },
-  { label: 'Sobre Nós', href: '/#quem-somos' },
-  { label: 'Blog', href: '/blog/' },
-];
-
-const treatments = [
-  { title: 'Alopecias Cicatriciais', href: '/tratamentos/#alopercias-cicatriciais', img: '2026/01/alopecias-cicatriciais-corte.webp', w: 663, h: 668 },
-  { title: 'Eflúvio Telógeno', href: '/tratamentos/#efluvio-telogeno', img: '2026/01/efluvio-telogeno-768x1024.webp', w: 768, h: 1024 },
-  { title: 'Alopecias Androgenetica', href: '/tratamentos/#alopercias-androgenetica', img: '2026/01/alopecia-androgenetica-1.webp', w: 253, h: 268 },
-  { title: 'Queda de Cabelo', href: '/queda-de-cabelo/', img: '2026/02/queda-de-cabelo.webp', w: 477, h: 464 },
-  { title: 'Crescimento de Sobrancelhas e Barba', href: '/tratamentos/#barba-sobrancelhas', img: '2026/02/barba-768x768.webp', w: 768, h: 768 },
-  { title: 'Intradermoterapia sem Dor', href: '/tratamentos/#intradermoterapia-sem-dor', img: '2026/01/intradermoterapia-sem-dor.webp', w: 800, h: 737 },
-  { title: 'Pré e Pós-Transplante Capilar', href: '/tratamentos/#transplante', img: '2026/02/transplante.webp', w: 800, h: 576 },
-  { title: 'Pré e Pós-Química Capilar', href: '/tratamentos/#quimica', img: '2026/02/quimica-1024x825.webp', w: 800, h: 645 },
-];
-
-const testimonials = [
-  {
-    img: '2026/01/Prancheta-3-copia-3-1.webp',
-    w: 104,
-    h: 104,
-    text: 'Trabalhei com a Tania Machado em  um hospital por alguns anos. Posso afirmar que se trata de profissional competente, estudiosa, comprometida em se atualizar constantemente.',
-    name: 'Dr. Manoel Leitão Neto Costa',
-    role: 'Médico cardiologista e intesivista',
-  },
-  {
-    img: '2026/01/11.webp',
-    w: 361,
-    h: 451,
-    text: 'Sou super cético com alguns assuntos, principalmente quando se trata de saúde. Ao conhecer a Laserterapia, fiquei relutante quanto a sua eficiência e eficácia, mas para minha grata surpresa o resultado foi espetacular. Cumpriu tudo que havia sido prometido e foi muito além. Simplesmente fantástico. Recomendo a todos!',
-    name: 'Wladimir Machado',
-    role: 'Empresário',
-  },
-  {
-    img: '2026/01/Prancheta-3-copia-2.webp',
-    w: 308,
-    h: 379,
-    text: 'Na CURE você encontra uma profissional qualificada, competente, que trabalha com respeito e ética, além de dominar sua área de atuação.',
-    name: 'Elaine Mota',
-    role: 'Enfermeira de Controle de Infecção Hospitalar',
-  },
-  {
-    img: '2026/01/plancheta-4.webp',
-    w: 447,
-    h: 632,
-    text: 'Simplesmente estou amando o resultado, cada dia mais. Muito obrigada. Entrei na sua clínica muito triste, só chorava por causa da minha queda de cabelo e hoje, eu só tenho que agradecer a Deus por ter colocado uma ótima profissional na minha vida. Você devolveu minha autoestima. Estou feliz e agradeço por você fazer parte dessa vitória.',
-    name: 'Simone Valeria',
-    role: 'Cliente',
-  },
-];
-
-const about = [
-  'Eu sei, na pele, o que a queda de cabelo é capaz de fazer com a autoestima de alguém. Não foi em livro que aprendi isso, foi no espelho.',
-  'Sou tricologista, pós-graduada e fundadora da minha própria clínica, mas antes de cuidar de qualquer paciente, precisei cuidar de mim. Depois de sofrer com dermatite e queda causada por químicas, percebi que não bastava “aceitar” aquele processo: eu precisava entender, em profundidade, o que estava acontecendo.',
-  'Foi essa inconformidade que me levou à tricologia. Estudei, me especializei e descobri que, por trás de cada fio que cai, existe uma história, um estilo de vida, um contexto emocional e um corpo pedindo atenção. Cada caso é um caso. Você é único.',
-  'Hoje, uno ciência aplicada, tecnologia e escuta empática para construir tratamentos individualizados, sem promessas milagrosas e com total responsabilidade. Transformo a dor que vivi em um compromisso diário: ajudar você a recuperar não só a densidade dos fios, mas a confiança de se olhar no espelho e se reconhecer de novo.',
-  'Eu não trato apenas cabelo; eu cuido da vida de quem está perdendo os cabelos.',
-  'Sempre digo para meus pacientes: Apaixone-se pelo processo, pela rotina diária que vai salvar seu cabelo!',
-];
-
-const mapsUrl =
-  'https://www.google.com/maps/place/R.+Bar%C3%A3o+de+Jaceguai,+1708+-+Sala+44+-+Parque+Monte+Libano,+Mogi+das+Cruzes+-+SP,+08780-100/data=!4m2!3m1!1s0x94cdd839ca29e681:0x7868f2fca69c1c35?sa=X&ved=1t:242&ictx=111';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import HomeContent from '../components/HomeContent.astro';
 ---
 
 <Layout>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-header__logo" href="/">
-        <img src={asset('2025/10/cure-clinica-logo-branca.webp')} width="129" height="41" alt="Cure Clínica - Tricologia" />
-      </a>
-
-      <nav class="nav" aria-label="Menu">
-        <ul>
-          {menu.map((m) => <li><a href={m.href}>{m.label}</a></li>)}
-        </ul>
-      </nav>
-
-      <div class="header-cta">
-        <a class="btn-small" href={WHATSAPP_URL} target="_blank" rel="noopener">Agendar Consulta</a>
+  <SiteHeader />
+  <main id="content" class="site-main post-36 page type-page status-publish hentry">
+    <div class="page-content">
+      <div data-elementor-type="wp-page" data-elementor-id="36" class="elementor elementor-36" data-elementor-post-type="page">
+        <HomeContent />
       </div>
-
-      <button class="menu-toggle" type="button" aria-label="Menu Toggle" aria-expanded="false" aria-controls="nav-dropdown">
-        <svg class="icon-open" aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg>
-        <svg class="icon-close" aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 800 846 783 846 767 842 750 829 738L587 496 829 258C838 250 846 233 846 217 846 200 842 183 829 171 817 158 800 154 783 154 767 154 750 158 738 171L500 408 742 167Z"></path></svg>
-      </button>
-
-      <nav id="nav-dropdown" class="nav-dropdown" aria-label="Menu">
-        {menu.map((m) => <a href={m.href}>{m.label}</a>)}
-      </nav>
     </div>
-  </header>
-
-  <main id="content">
-    <section class="hero" style={`background-image:url(${asset('2026/01/fundo-banner-5.webp')})`}>
-      <div class="hero__inner">
-        <div class="hero__text">
-          <h1>Tratamentos avançados para saúde capilar e autoestima</h1>
-          <p>Atendimento personalizado para cada paciente</p>
-          <a class="btn" href={WHATSAPP_URL} target="_blank" rel="noopener">Falar via Whatsapp</a>
-        </div>
-        <div class="hero__image">
-          <img
-            src={asset('2026/01/tania-machado.webp')}
-            width="800"
-            height="1000"
-            fetchpriority="high"
-            decoding="async"
-            alt="Tania Machado, tricologista e fundadora da Cure Clínica"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="treatments">
-      <div class="treatments__inner">
-        <span class="tag tag--archivo">tratamentos</span>
-        <h2>No que podemos lhe ajudar</h2>
-        <div class="treatments__grid">
-          {treatments.map((t, i) => (
-            <a class="card" href={t.href}>
-              <img
-                src={asset(t.img)}
-                width={t.w}
-                height={t.h}
-                alt={t.title}
-                loading={i < 2 ? 'eager' : 'lazy'}
-                decoding="async"
-              />
-              <div class="card__title"><h3>{t.title}</h3></div>
-              <p>Saiba mais...</p>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="testimonials">
-      <div class="testimonials__inner">
-        <div class="testimonials__head">
-          <span class="tag">depoimentos</span>
-          <h2>O que dizem sobre nós</h2>
-        </div>
-
-        <div class="carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Carrossel">
-          <div class="carousel__viewport">
-            <div class="carousel__track">
-              {testimonials.map((t, i) => (
-                <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label={`${i + 1} / ${testimonials.length}`}>
-                  <div class="slide">
-                    <div class="slide__card">
-                      <img src={asset(t.img)} width={t.w} height={t.h} alt={t.name} loading="lazy" decoding="async" />
-                      <div class="slide__body">
-                        <p class="slide__text">{t.text}</p>
-                        <div class="slide__author">
-                          <p class="slide__name">{t.name}</p>
-                          <p class="slide__role">{t.role}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div class="carousel__dots">
-            {testimonials.map((_, i) => (
-              <button class="carousel__dot" type="button" aria-label={`Ir para o slide ${i + 1}`} data-dot={i}></button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="quem-somos">
-      <div class="about__inner">
-        <div class="about__col about__video">
-          <video src={asset('2026/01/quem-sou.mp4')} controls preload="metadata" controlslist="nodownload"></video>
-        </div>
-        <div class="about__col">
-          <div class="about__title">
-            <img src={asset('2026/01/download.png')} width="53" height="95" alt="" loading="lazy" decoding="async" />
-            <h2>Quem sou</h2>
-          </div>
-          <div class="about__text">
-            <p>
-              {about.map((line, i) => (
-                <>
-                  {line}
-                  {i < about.length - 1 && <br />}
-                </>
-              ))}
-            </p>
-            <p>Tania Machado</p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <footer>
-    <div class="footer-info">
-      <div class="footer-info__inner">
-        <div class="footer-info__grid">
-          <div class="footer-col">
-            <p class="footer-col__title">Endereço</p>
-            <div class="icon-box">
-              <a href={mapsUrl} target="_blank" rel="noopener" aria-label="Rua Barão de Jaceguai, 1708, sala 44, edifício Platinum - Mogi das Cruzes - SP">
-                <svg aria-hidden="true" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
-              </a>
-              <a href={mapsUrl} target="_blank" rel="noopener">Rua Barão de Jaceguai, 1708, sala 44, edifício Platinum - Mogi das Cruzes - SP</a>
-            </div>
-          </div>
-
-          <div class="footer-col">
-            <p class="footer-col__title">Contato</p>
-            <div class="icon-box">
-              <a href="https://wa.me/5511943352498" target="_blank" rel="noopener" aria-label="Telefone / WhatsApp 11-94335-2498">
-                <svg aria-hidden="true" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>
-              </a>
-              <a href="https://wa.me/5511943352498" target="_blank" rel="noopener">Telefone / WhatsApp<br /> 11-94335-2498</a>
-            </div>
-            <div class="icon-box">
-              <a href="mailto:cureclinicamogi@gmail.com" aria-label="E-mail cureclinicamogi@gmail.com">
-                <svg aria-hidden="true" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>
-              </a>
-              <a href="mailto:cureclinicamogi@gmail.com">E-mail<br /> cureclinicamogi@gmail.com</a>
-            </div>
-            <div class="icon-box">
-              <a href="https://instagram.com/cureclinica" target="_blank" rel="noopener" aria-label="Instagram @cureclinica">
-                <svg aria-hidden="true" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
-              </a>
-              <a href="https://instagram.com/cureclinica" target="_blank" rel="noopener">Instagram<br /> @cureclinica</a>
-            </div>
-          </div>
-
-          <div class="footer-col">
-            <p class="footer-col__title">Horário de Funcionamento</p>
-            <div class="icon-box">
-              <span>
-                <svg aria-hidden="true" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg>
-              </span>
-              <p class="hours">
-                Segunda a sexta: 09h às 20h<br />
-                Sábado: 09h às 14h<br />
-                Domingo: fechado
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bar">
-      <div class="footer-bar__inner">
-        <div class="footer-bar__logo">
-          <img src={asset('2025/10/cure-clinica-logo-branca.webp')} width="129" height="41" alt="Cure Clínica" loading="lazy" />
-        </div>
-        <div class="footer-bar__legal">
-          <p>© 2026 Cure Laser &amp; Terapia. Todos os direitos reservados.</p>
-          <p><a href="https://siteseditaveis.com.br/" target="_blank" rel="noopener">Desenvolvido por Sites Editáveis</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </Layout>
 
+<style is:global>
+  /* Header fixo (substitui o sticky em JS do Elementor) */
+  header.elementor-location-header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+</style>
+
 <script>
-  // Menu mobile
-  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
-  const dropdown = document.getElementById('nav-dropdown');
-  toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    dropdown?.classList.toggle('is-open', !open);
-  });
-  dropdown?.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', () => {
-      toggle?.setAttribute('aria-expanded', 'false');
-      dropdown.classList.remove('is-open');
-    }),
-  );
+  import Swiper from 'swiper';
+  import { Autoplay, Pagination } from 'swiper/modules';
 
-  // Carrossel de depoimentos: autoplay 5s, loop, pausa no hover, 1 slide (2 no tablet), espaço 10px
-  const root = document.querySelector<HTMLElement>('[data-carousel]');
-  if (root) {
-    const viewport = root.querySelector<HTMLElement>('.carousel__viewport')!;
-    const track = root.querySelector<HTMLElement>('.carousel__track')!;
-    const slides = Array.from(root.querySelectorAll<HTMLElement>('.carousel__slide'));
-    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('.carousel__dot'));
-    const GAP = 10;
-    let index = 0;
-    let perView = 1;
-    let timer: number | undefined;
-    let paused = false;
+  // Carrossel de depoimentos (mesmas opções do Elementor)
+  const el = document.querySelector<HTMLElement>('.e-n-carousel');
+  if (el) {
+    new Swiper(el, {
+      modules: [Autoplay, Pagination],
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: 10,
+      loop: true,
+      speed: 500,
+      autoplay: { delay: 5000, pauseOnMouseEnter: true, disableOnInteraction: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: { 768: { slidesPerView: 2 }, 1025: { slidesPerView: 1 } },
+    });
+  }
 
-    const maxIndex = () => Math.max(0, slides.length - perView);
-
-    const layout = () => {
-      const w = window.innerWidth;
-      perView = w >= 768 && w <= 1024 ? 2 : 1;
-      const slideW = (viewport.clientWidth - GAP * (perView - 1)) / perView;
-      slides.forEach((s) => {
-        s.style.width = `${slideW}px`;
-        s.style.marginRight = `${GAP}px`;
-      });
-      go(Math.min(index, maxIndex()), false);
+  // Menu mobile/tablet
+  document.querySelectorAll<HTMLElement>('.elementor-menu-toggle').forEach((toggle) => {
+    const menu = toggle.nextElementSibling as HTMLElement | null;
+    const setOpen = (open: boolean) => {
+      toggle.classList.toggle('elementor-active', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      menu?.setAttribute('aria-hidden', String(!open));
+      menu?.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', open ? '0' : '-1'));
+      if (menu && open) menu.style.setProperty('--menu-height', menu.scrollHeight + 'px');
     };
-
-    const go = (i: number, animate = true) => {
-      index = i;
-      const slideW = slides[0].getBoundingClientRect().width + GAP;
-      track.style.transition = animate ? '' : 'none';
-      track.style.transform = `translate3d(${-index * slideW}px,0,0)`;
-      dots.forEach((d, n) => d.setAttribute('aria-current', String(n === index)));
-      slides.forEach((s, n) => {
-        const visible = n >= index && n < index + perView;
-        s.setAttribute('aria-hidden', String(!visible));
-        if (visible) s.removeAttribute('inert');
-        else s.setAttribute('inert', '');
-      });
-    };
-
-    const next = () => go(index >= maxIndex() ? 0 : index + 1);
-    const start = () => {
-      stop();
-      timer = window.setInterval(() => {
-        if (!paused) next();
-      }, 5000);
-    };
-    const stop = () => {
-      if (timer) window.clearInterval(timer);
-    };
-
-    dots.forEach((d, n) =>
-      d.addEventListener('click', () => {
-        go(Math.min(n, maxIndex()));
-        start();
-      }),
-    );
-    root.addEventListener('mouseenter', () => (paused = true));
-    root.addEventListener('mouseleave', () => (paused = false));
-
-    // Arrastar no toque
-    let startX = 0;
-    viewport.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
-    viewport.addEventListener('touchend', (e) => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) {
-        go(dx < 0 ? (index >= maxIndex() ? 0 : index + 1) : index === 0 ? maxIndex() : index - 1);
-        start();
+    toggle.addEventListener('click', () => setOpen(!toggle.classList.contains('elementor-active')));
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setOpen(!toggle.classList.contains('elementor-active'));
       }
     });
-
-    window.addEventListener('resize', layout);
-    layout();
-    start();
-  }
+    menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  });
 </script>

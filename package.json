@@ -9,6 +9,10 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^7.4.11"
+    "astro": "^7.4.11",
+    "swiper": "^14.4.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
   }
 }

@@ -5,4 +5,8 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
+  vite: {
+    // O CSS do Elementor tem seletores que o lightningcss rejeita; esbuild minifica sem erro.
+    build: { cssMinify: 'esbuild' },
+  },
 });
