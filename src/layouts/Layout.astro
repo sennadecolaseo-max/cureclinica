@@ -27,6 +27,8 @@ interface Props {
   isHome?: boolean;
   pageName?: string;
   schemaType?: string;
+  noindex?: boolean;
+  preloadImage?: string;
 }
 
 const {
@@ -36,6 +38,8 @@ const {
   isHome = true,
   pageName = '',
   schemaType = 'WebPage',
+  noindex = false,
+  preloadImage = '',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -49,8 +53,17 @@ const pick = (t: string) => nodes.find((n) => n['@type'] === t);
 const { potentialAction: _a, ...website } = pick('WebSite');
 const crumbs = [{ '@type': 'ListItem', position: 1, name: 'Início', item: `${origin}/` }];
 if (!isHome) crumbs.push({ '@type': 'ListItem', position: 2, name: pageName || title, item: canonical });
+const person = {
+  '@type': 'Person',
+  '@id': `${origin}/#tania-machado`,
+  name: 'Tania Machado',
+  jobTitle: 'Tricologista',
+  image: ogImage,
+  worksFor: { '@id': `${origin}/#organization` },
+};
 const organization = {
   ...pick('Organization'),
+  founder: { '@id': `${origin}/#tania-machado` },
   '@type': ['MedicalClinic', 'Organization'],
   telephone: '+55 11 94335-2498',
   email: 'cureclinicamogi@gmail.com',
@@ -88,6 +101,7 @@ const jsonld = {
     { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`, itemListElement: crumbs },
     website,
     organization,
+    person,
   ],
 };
 ---
@@ -99,7 +113,7 @@ const jsonld = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
     />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -116,6 +130,10 @@ const jsonld = {
     <meta property="og:image:height" content="1024" />
     <meta property="og:image:type" content="image/webp" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
     <link rel="icon" href={'/uploads/favicon-150x150.webp'} sizes="32x32" />
     <link rel="icon" href={'/uploads/favicon-300x300.webp'} sizes="192x192" />

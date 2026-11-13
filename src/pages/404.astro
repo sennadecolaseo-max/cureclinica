@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<Layout
+  title="Página não encontrada | Cure Clínica"
+  description="A página que você procura não existe mais ou mudou de endereço. Volte para a página inicial da Cure Clínica."
+  pageId={0}
+  isHome={false}
+  noindex={true}
+>
+  <SiteHeader />
+  <main id="content" class="site-main page type-page status-publish hentry">
+    <div class="page-content" style="max-width:1140px;margin:0 auto;padding:80px 20px;text-align:center;">
+      <h1 style="color:#004B76;font-family:Roboto,sans-serif;font-weight:600;font-size:32px;margin:0 0 16px;">Página não encontrada</h1>
+      <p style="font-size:18px;color:#54595F;margin:0 0 32px;">Esta página não existe mais ou mudou de endereço.</p>
+      <p style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:0;">
+        <a href="/" style="text-decoration:none;background:#007FC9;color:#fff;padding:12px 24px;border-radius:10px;font-family:Roboto,sans-serif;font-weight:500;">Ir para a página inicial</a>
+        <a href="/tratamentos/" style="text-decoration:none;background:#E5F1F1;color:#004B76;padding:12px 24px;border-radius:10px;font-family:Roboto,sans-serif;font-weight:500;">Ver tratamentos</a>
+      </p>
+    </div>
+  </main>
+  <SiteFooter />
+</Layout>
