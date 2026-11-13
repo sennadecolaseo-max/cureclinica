@@ -17,14 +17,7 @@ import HomeContent from '../components/HomeContent.astro';
   <SiteFooter />
 </Layout>
 
-<style is:global>
-  /* Header fixo (substitui o sticky em JS do Elementor) */
-  header.elementor-location-header {
-    position: sticky;
-    top: 0;
-    z-index: 99;
-  }
-</style>
+
 
 <script>
   import Swiper from 'swiper';
@@ -46,23 +39,4 @@ import HomeContent from '../components/HomeContent.astro';
     });
   }
 
-  // Menu mobile/tablet
-  document.querySelectorAll<HTMLElement>('.elementor-menu-toggle').forEach((toggle) => {
-    const menu = toggle.nextElementSibling as HTMLElement | null;
-    const setOpen = (open: boolean) => {
-      toggle.classList.toggle('elementor-active', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      menu?.setAttribute('aria-hidden', String(!open));
-      menu?.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', open ? '0' : '-1'));
-      if (menu && open) menu.style.setProperty('--menu-height', menu.scrollHeight + 'px');
-    };
-    toggle.addEventListener('click', () => setOpen(!toggle.classList.contains('elementor-active')));
-    toggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        setOpen(!toggle.classList.contains('elementor-active'));
-      }
-    });
-    menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
-  });
 </script>

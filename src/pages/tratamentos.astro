@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import TratamentosContent from '../components/TratamentosContent.astro';
+import '../styles/pages/tratamentos.css';
+---
+
+<Layout
+  title="Tratamentos - Cure Clínica - Tricologia"
+  description="Conheça os tratamentos da Cure Clínica: alopecias cicatriciais, eflúvio telógeno, alopecia androgenética, pré e pós-transplante capilar, pré e pós-química, crescimento de barba e sobrancelhas e intradermoterapia sem dor."
+  pageId={239}
+  isHome={false}
+>
+  <SiteHeader />
+  <main id="content" class="site-main post-239 page type-page status-publish hentry">
+    <div class="page-content">
+      <div data-elementor-type="wp-page" data-elementor-id="239" class="elementor elementor-239" data-elementor-post-type="page">
+        <TratamentosContent />
+      </div>
+    </div>
+  </main>
+  <SiteFooter />
+</Layout>

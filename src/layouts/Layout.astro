@@ -23,11 +23,15 @@ import schema from '../data/schema.json';
 interface Props {
   title?: string;
   description?: string;
+  pageId?: number;
+  isHome?: boolean;
 }
 
 const {
   title = 'Home - Cure Clínica - Tricologia',
   description = 'Tratamentos avançados para saúde capilar e autoestima Atendimento personalizado para cada paciente Falar via Whatsapp tratamentos No que podemos lhe ajudar Alopecias Cicatriciais Saiba mais… Eflúvio Telógeno Saiba mais… Alopecias Androgenetica Saiba mais… Queda de Cabelo Saiba mais… Crescimento de Sobrancelhas e Barba Saiba mais… Intradermoterapia sem Dor Saiba mais… Pré e Pós-Transplante Capilar Saiba […]',
+  pageId = 36,
+  isHome = true,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -120,7 +124,7 @@ const ogImage = new URL('/uploads/tania-machado.webp', Astro.site).href;
     </noscript>
     <!-- End Meta Pixel -->
   </head>
-  <body class="home wp-singular page-template-default page page-id-36 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master hello-elementor-default elementor-default elementor-kit-11 elementor-page elementor-page-36">
+  <body class={`${isHome ? 'home ' : ''}wp-singular page-template-default page page-id-${pageId} wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master hello-elementor-default elementor-default elementor-kit-11 elementor-page elementor-page-${pageId}`}>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
