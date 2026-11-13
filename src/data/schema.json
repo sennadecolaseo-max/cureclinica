@@ -1,0 +1,102 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://cureclinica.com.br/",
+   "url": "https://cureclinica.com.br/",
+   "name": "Home - Cure Clínica - Tricologia",
+   "isPartOf": {
+    "@id": "https://cureclinica.com.br/#website"
+   },
+   "about": {
+    "@id": "https://cureclinica.com.br/#organization"
+   },
+   "primaryImageOfPage": {
+    "@id": "https://cureclinica.com.br/#primaryimage"
+   },
+   "image": {
+    "@id": "https://cureclinica.com.br/#primaryimage"
+   },
+   "thumbnailUrl": "https://cureclinica.com.br/wp-content/uploads/2026/01/tania-machado.webp",
+   "datePublished": "2026-01-12T20:31:57+00:00",
+   "dateModified": "2026-04-14T14:05:21+00:00",
+   "breadcrumb": {
+    "@id": "https://cureclinica.com.br/#breadcrumb"
+   },
+   "inLanguage": "pt-BR",
+   "potentialAction": [
+    {
+     "@type": "ReadAction",
+     "target": [
+      "https://cureclinica.com.br/"
+     ]
+    }
+   ]
+  },
+  {
+   "@type": "ImageObject",
+   "inLanguage": "pt-BR",
+   "@id": "https://cureclinica.com.br/#primaryimage",
+   "url": "https://cureclinica.com.br/wp-content/uploads/2026/01/tania-machado.webp",
+   "contentUrl": "https://cureclinica.com.br/wp-content/uploads/2026/01/tania-machado.webp",
+   "width": 819,
+   "height": 1024
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://cureclinica.com.br/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Início"
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://cureclinica.com.br/#website",
+   "url": "https://cureclinica.com.br/",
+   "name": "Cure Clínica - Tricologia",
+   "description": "",
+   "publisher": {
+    "@id": "https://cureclinica.com.br/#organization"
+   },
+   "potentialAction": [
+    {
+     "@type": "SearchAction",
+     "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://cureclinica.com.br/?s={search_term_string}"
+     },
+     "query-input": {
+      "@type": "PropertyValueSpecification",
+      "valueRequired": true,
+      "valueName": "search_term_string"
+     }
+    }
+   ],
+   "inLanguage": "pt-BR"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://cureclinica.com.br/#organization",
+   "name": "Cure Clínica - Tricologia",
+   "url": "https://cureclinica.com.br/",
+   "logo": {
+    "@type": "ImageObject",
+    "inLanguage": "pt-BR",
+    "@id": "https://cureclinica.com.br/#/schema/logo/image/",
+    "url": "https://cureclinica.com.br/wp-content/uploads/2025/10/cure-clinica-logo-branca.webp",
+    "contentUrl": "https://cureclinica.com.br/wp-content/uploads/2025/10/cure-clinica-logo-branca.webp",
+    "width": 129,
+    "height": 41,
+    "caption": "Cure Clínica - Tricologia"
+   },
+   "image": {
+    "@id": "https://cureclinica.com.br/#/schema/logo/image/"
+   }
+  }
+ ]
+}

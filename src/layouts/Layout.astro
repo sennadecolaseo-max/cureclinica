@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+import schema from '../data/schema.json';
+import { asset } from '../data/assets';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Home - Cure Clínica - Tricologia',
+  description = 'Tratamentos avançados para saúde capilar e autoestima Atendimento personalizado para cada paciente Falar via Whatsapp tratamentos No que podemos lhe ajudar Alopecias Cicatriciais Saiba mais… Eflúvio Telógeno Saiba mais… Alopecias Androgenetica Saiba mais… Queda de Cabelo Saiba mais… Crescimento de Sobrancelhas e Barba Saiba mais… Intradermoterapia sem Dor Saiba mais… Pré e Pós-Transplante Capilar Saiba […]',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = asset('2026/01/tania-machado.webp');
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Cure Clínica - Tricologia" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="819" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href={asset('2025/10/favicon-150x150.webp')} sizes="32x32" />
+    <link rel="icon" href={asset('2025/10/favicon-300x300.webp')} sizes="192x192" />
+    <link rel="apple-touch-icon" href={asset('2025/10/favicon-300x300.webp')} />
+    <meta name="msapplication-TileImage" content={asset('2025/10/favicon-300x300.webp')} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;600&family=Archivo:wght@500&family=Roboto:wght@300;400;500;600;700&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MP7LW64V');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Meta Pixel -->
+    <script is:inline>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1617279699509270');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1617279699509270&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
+    <!-- End Meta Pixel -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MP7LW64V"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a class="skip-link" href="#content">Ir para o conteúdo</a>
+    <slot />
+  </body>
+</html>
