@@ -18,6 +18,17 @@ import '../styles/elementor/15-post-36.css';
 import '../styles/elementor/16-post-23.css';
 import '../styles/elementor/17-post-191.css';
 import '../styles/elementor/18-style.css';
+import '@fontsource/roboto/latin-300.css';
+import '@fontsource/roboto/latin-400.css';
+import '@fontsource/roboto/latin-500.css';
+import '@fontsource/roboto/latin-600.css';
+import '@fontsource/roboto/latin-700.css';
+import '@fontsource/roboto-slab/latin-400.css';
+import '@fontsource/albert-sans/latin-300.css';
+import '@fontsource/albert-sans/latin-400.css';
+import '@fontsource/albert-sans/latin-600.css';
+import '@fontsource/archivo/latin-500.css';
+import '@fontsource/nunito/latin-600.css';
 import schema from '../data/schema.json';
 
 interface Props {
@@ -140,34 +151,14 @@ const jsonld = {
     <link rel="apple-touch-icon" href={'/uploads/favicon-300x300.webp'} />
     <meta name="msapplication-TileImage" content={'/uploads/favicon-300x300.webp'} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Archivo:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap"
-    />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
 
-    <!-- Google Tag Manager -->
+    <!-- GTM e Meta Pixel: carregam após o load (ou na 1ª interação) para não competir com o LCP/TBT -->
     <script is:inline>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-MP7LW64V');
-    </script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Meta Pixel -->
-    <script is:inline>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      !(function (f, n) {
         n = f.fbq = function () {
           n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
         };
@@ -176,25 +167,35 @@ const jsonld = {
         n.loaded = !0;
         n.version = '2.0';
         n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      })(window);
       fbq('init', '1617279699509270');
       fbq('track', 'PageView');
+      (function () {
+        var started = false;
+        function load() {
+          if (started) return;
+          started = true;
+          var g = document.createElement('script');
+          g.async = true;
+          g.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MP7LW64V';
+          document.head.appendChild(g);
+          var p = document.createElement('script');
+          p.async = true;
+          p.src = 'https://connect.facebook.net/en_US/fbevents.js';
+          document.head.appendChild(p);
+        }
+        ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (e) {
+          window.addEventListener(e, load, { once: true, passive: true });
+        });
+        window.addEventListener('load', function () {
+          setTimeout(load, 2500);
+        });
+      })();
     </script>
     <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display:none"
-        src="https://www.facebook.com/tr?id=1617279699509270&ev=PageView&noscript=1"
-        alt=""
-      />
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1617279699509270&ev=PageView&noscript=1" alt="" />
     </noscript>
-    <!-- End Meta Pixel -->
+    <!-- End GTM / Meta Pixel -->
   </head>
   <body class={`${isHome ? 'home ' : ''}wp-singular page-template-default page page-id-${pageId} wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master hello-elementor-default elementor-default elementor-kit-11 elementor-page elementor-page-${pageId}`}>
     <!-- Google Tag Manager (noscript) -->
