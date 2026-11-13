@@ -19,7 +19,6 @@ import '../styles/elementor/16-post-23.css';
 import '../styles/elementor/17-post-191.css';
 import '../styles/elementor/18-style.css';
 import schema from '../data/schema.json';
-import { asset } from '../data/assets';
 
 interface Props {
   title?: string;
@@ -32,7 +31,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const ogImage = asset('2026/01/tania-machado.webp');
+const ogImage = new URL('/uploads/tania-machado.webp', Astro.site).href;
 ---
 
 <!doctype html>
@@ -60,10 +59,10 @@ const ogImage = asset('2026/01/tania-machado.webp');
     <meta property="og:image:type" content="image/webp" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" href={asset('2025/10/favicon-150x150.webp')} sizes="32x32" />
-    <link rel="icon" href={asset('2025/10/favicon-300x300.webp')} sizes="192x192" />
-    <link rel="apple-touch-icon" href={asset('2025/10/favicon-300x300.webp')} />
-    <meta name="msapplication-TileImage" content={asset('2025/10/favicon-300x300.webp')} />
+    <link rel="icon" href={'/uploads/favicon-150x150.webp'} sizes="32x32" />
+    <link rel="icon" href={'/uploads/favicon-300x300.webp'} sizes="192x192" />
+    <link rel="apple-touch-icon" href={'/uploads/favicon-300x300.webp'} />
+    <meta name="msapplication-TileImage" content={'/uploads/favicon-300x300.webp'} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

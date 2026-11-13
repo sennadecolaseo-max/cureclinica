@@ -18,7 +18,7 @@
    "image": {
     "@id": "https://cureclinica.com.br/#primaryimage"
    },
-   "thumbnailUrl": "https://cureclinica.com.br/wp-content/uploads/2026/01/tania-machado.webp",
+   "thumbnailUrl": "https://cureclinica.com.br/uploads/tania-machado.webp",
    "datePublished": "2026-01-12T20:31:57+00:00",
    "dateModified": "2026-04-14T14:05:21+00:00",
    "breadcrumb": {
@@ -38,8 +38,8 @@
    "@type": "ImageObject",
    "inLanguage": "pt-BR",
    "@id": "https://cureclinica.com.br/#primaryimage",
-   "url": "https://cureclinica.com.br/wp-content/uploads/2026/01/tania-machado.webp",
-   "contentUrl": "https://cureclinica.com.br/wp-content/uploads/2026/01/tania-machado.webp",
+   "url": "https://cureclinica.com.br/uploads/tania-machado.webp",
+   "contentUrl": "https://cureclinica.com.br/uploads/tania-machado.webp",
    "width": 819,
    "height": 1024
   },
@@ -88,8 +88,8 @@
     "@type": "ImageObject",
     "inLanguage": "pt-BR",
     "@id": "https://cureclinica.com.br/#/schema/logo/image/",
-    "url": "https://cureclinica.com.br/wp-content/uploads/2025/10/cure-clinica-logo-branca.webp",
-    "contentUrl": "https://cureclinica.com.br/wp-content/uploads/2025/10/cure-clinica-logo-branca.webp",
+    "url": "https://cureclinica.com.br/uploads/cure-clinica-logo-branca.webp",
+    "contentUrl": "https://cureclinica.com.br/uploads/cure-clinica-logo-branca.webp",
     "width": 129,
     "height": 41,
     "caption": "Cure Clínica - Tricologia"

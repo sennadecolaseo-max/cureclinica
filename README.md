@@ -12,4 +12,4 @@ npm run build    # gera dist/
 - `src/styles/elementor/` — CSS original do Elementor/tema, na ordem de carregamento.
 - `public/uploads/` — imagens locais.
 
-Pendente (ainda carregado do site antigo): `fundo-banner-5.webp` (fundo do hero), `quem-sou.mp4` e favicons.
+Todas as mídias da home são locais em `public/uploads/`.
