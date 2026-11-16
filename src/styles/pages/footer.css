@@ -9,3 +9,12 @@
   .elementor-191 .elementor-element-9e3efb6 .elementor-widget-heading .elementor-heading-title::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:2px;background:rgba(255,255,255,.55);border-radius:2px}
   .elementor-191 .elementor-element-9e3efb6 .elementor-icon-box-wrapper{margin-bottom:6px}
 }
+
+/* Barra inferior: logo à esquerda, textos alinhados à direita e centralizados na vertical */
+@media (min-width:768px){
+  .elementor-191 .elementor-element-76f9c68{--padding-top:22px;--padding-bottom:22px}
+  .elementor-191 .elementor-element-441e96c{align-items:center}
+  .elementor-191 .elementor-element-7f411c2{align-items:flex-end;justify-content:center;gap:2px}
+  .elementor-191 .elementor-element-7f411c2 .elementor-widget{margin:0}
+  .elementor-191 .elementor-element-7f411c2 .elementor-heading-title{margin:0;text-align:right;font-size:14px;line-height:1.5}
+}
