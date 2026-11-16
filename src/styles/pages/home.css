@@ -10,3 +10,11 @@
 @media (min-width:768px){
   .elementor-36 .elementor-element.elementor-element-16c1963{--e-con-grid-template-columns:repeat(3, 1fr)}
 }
+
+/* Quem sou: leitura mais confortável e vídeo fixo no desktop */
+.elementor-36 .elementor-element-1827bd3 p{margin:0 0 1.1em;font-size:17px;line-height:1.7}
+.elementor-36 .elementor-element-1827bd3 p.quem-sou-assinatura{margin:1.6em 0 0;font-family:"Roboto Slab",serif;font-size:20px;font-weight:400;color:var(--e-global-color-ae6ee34,#004B76)}
+@media (min-width:1025px){
+  #quem-somos .elementor-element-779e5e3{position:sticky;top:110px;align-self:flex-start}
+  #quem-somos .elementor-element-01ebeca video{border-radius:20px;box-shadow:0 12px 32px rgba(0,75,118,.18)}
+}
