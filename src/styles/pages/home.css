@@ -1,0 +1,12 @@
+/* Home: refinos de layout no desktop/tablet (Decola SEO) */
+
+/* Hero: dois botões lado a lado */
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-cta-secondary .elementor-button{background:transparent;color:var(--e-global-color-ae6ee34,#004B76);border:2px solid var(--e-global-color-ae6ee34,#004B76);padding:9px 21px;text-decoration:none}
+.hero-cta-secondary .elementor-button:hover{background:var(--e-global-color-ae6ee34,#004B76);color:#fff}
+@media (max-width:767px){.hero-ctas{justify-content:center}}
+
+/* Grade de tratamentos: 3 colunas (9 cards = 3 linhas completas) */
+@media (min-width:768px){
+  .elementor-36 .elementor-element.elementor-element-16c1963{--e-con-grid-template-columns:repeat(3, 1fr)}
+}
