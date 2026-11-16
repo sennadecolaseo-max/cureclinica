@@ -1,0 +1,5 @@
+/* PRP Capilar: no mobile, imagem e texto empilhados em largura total */
+@media (max-width:767px){
+  #prp-capilar .e-con.e-flex.e-child{--width:100%;--flex-direction:column;flex-direction:column;width:100%}
+  #prp-capilar .elementor-widget-image img{width:100%;height:auto}
+}
