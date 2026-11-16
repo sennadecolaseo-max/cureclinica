@@ -1,0 +1,11 @@
+/* Rodapé: colunas equilibradas no desktop/tablet (Decola SEO) */
+@media (min-width:1025px){
+  .elementor-191 .elementor-element-d2a90d0{--padding-top:56px;--padding-bottom:56px}
+  .elementor-191 .elementor-element-9e3efb6{--e-con-grid-template-columns:repeat(3, 1fr);column-gap:0;align-items:stretch}
+  .elementor-191 .elementor-element-9e3efb6>.e-con{padding:4px 28px;border-left:1px solid rgba(255,255,255,.18)}
+  .elementor-191 .elementor-element-9e3efb6>.e-con:first-child{border-left:0;padding-left:0}
+  .elementor-191 .elementor-element-9e3efb6>.e-con:last-child{padding-right:0}
+  .elementor-191 .elementor-element-9e3efb6 .elementor-widget-heading .elementor-heading-title{font-size:18px;letter-spacing:.3px;margin:0 0 14px;padding-bottom:10px;position:relative}
+  .elementor-191 .elementor-element-9e3efb6 .elementor-widget-heading .elementor-heading-title::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:2px;background:rgba(255,255,255,.55);border-radius:2px}
+  .elementor-191 .elementor-element-9e3efb6 .elementor-icon-box-wrapper{margin-bottom:6px}
+}
