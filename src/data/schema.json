@@ -88,10 +88,10 @@
     "@type": "ImageObject",
     "inLanguage": "pt-BR",
     "@id": "https://cureclinica.com.br/#/schema/logo/image/",
-    "url": "https://cureclinica.com.br/uploads/cure-clinica-logo-branca.webp",
-    "contentUrl": "https://cureclinica.com.br/uploads/cure-clinica-logo-branca.webp",
-    "width": 129,
-    "height": 41,
+    "url": "https://cureclinica.com.br/uploads/cure-logo-512.png",
+    "contentUrl": "https://cureclinica.com.br/uploads/cure-logo-512.png",
+    "width": 512,
+    "height": 512,
     "caption": "Cure Clínica - Tricologia"
    },
    "image": {
